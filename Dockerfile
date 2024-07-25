@@ -1,13 +1,13 @@
-FROM alpine:3.18.2
+FROM alpine:3.18.8
 
 ENV OTP_VERSION="25.3.2.3" \
-    REBAR3_VERSION="3.20.0"
+    REBAR3_VERSION="3.23.0"
 
 # Build erlang from source
 RUN set -xe \
 	&& OTP_DOWNLOAD_URL="https://github.com/erlang/otp/archive/OTP-${OTP_VERSION}.tar.gz" \
 	&& OTP_DOWNLOAD_SHA256="93b0b2b02b789d3b51ed1c2e56fc40e2ee5a8394bf82686f06be5458e9b85994" \
-	&& REBAR3_DOWNLOAD_SHA256="53ed7f294a8b8fb4d7d75988c69194943831c104d39832a1fa30307b1a8593de" \
+	&& REBAR3_DOWNLOAD_SHA256="00646b692762ffd340560e8f16486dbda840e1546749ee5a7f58feeb77e7b516" \
 	&& apk add --no-cache --virtual .fetch-deps \
 		curl \
 		ca-certificates \
@@ -65,12 +65,12 @@ RUN set -xe \
 	&& apk del .fetch-deps .build-deps
 
 # Build elixir
-ENV ELIXIR_VERSION="v1.14.5" \
+ENV ELIXIR_VERSION="v1.16.3" \
 	LANG=C.UTF-8
 
 RUN set -xe \
 	&& ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/${ELIXIR_VERSION}.tar.gz" \
-	&& ELIXIR_DOWNLOAD_SHA256="2ea249566c67e57f8365ecdcd0efd9b6c375f57609b3ac2de326488ac37c8ebd" \
+	&& ELIXIR_DOWNLOAD_SHA256="a163128e618e5205ea749f8effafa5b540008fd0bed863e75e2e09663a00ec45" \
 	&& buildDeps=' \
 		ca-certificates \
 		curl \

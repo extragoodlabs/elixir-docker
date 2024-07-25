@@ -12,9 +12,10 @@ Images are built for both amd64 and arm64 and uploaded to the GitHub Container R
 
 The tag format is `{ELIXIR_VERSION}-erlang-{OTP_VERSION}-nojit-{OS}-{OS_VERSION}`.
 
-For example:
+Available tags are:
 
 - `1.14.5-erlang-25.3.2.3-nojit-alpine-3.18.2`
+- `1.16.3-erlang-25.3.2.3-nojit-alpine-3.18.8`
 
 ## License
 
